@@ -102,11 +102,4 @@ export const pluginOptionsSchema = ({ Joi }) =>
       .description(
         `Takes the output of \`filterPages\` and lets you return a sitemap entry.`
       ),
-    // WST START: This is an option created by Workast.
-    ignoreAssetPrefix: Joi.boolean()
-      .default(false)
-      .description(
-        `Ignores the "assetsPrefix" from the "gatsby-config.js" file.`
-      ),
-    // WST END
   })

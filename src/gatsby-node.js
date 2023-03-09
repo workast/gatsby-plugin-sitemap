@@ -17,9 +17,6 @@ exports.onPostBuild = async (
     resolvePages,
     filterPages,
     serialize,
-    // WST START: This is an option created by Workast.
-    ignoreAssetPrefix,
-    // WST END
   }
 ) => {
   const { data: queryRecords, errors } = await graphql(query)
@@ -81,13 +78,8 @@ exports.onPostBuild = async (
     }
   }
 
-  const sitemapWritePath = path.join(`public`, output)
-  // WST START: The original line is commented.
+  const sitemapWritePath = path.join(`./public`, output)
   // const sitemapPublicPath = path.posix.join(pathPrefix, output)
-  // const sitemapPublicPath = ignoreAssetPrefix
-  //   ? output
-  //   : path.posix.join(pathPrefix, output);
-  // WST END
 
   return simpleSitemapAndIndex({
     hostname: siteUrl,
