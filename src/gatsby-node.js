@@ -6,7 +6,7 @@ import { prefixPath, pageFilter, REPORTER_PREFIX } from "./internals"
 exports.pluginOptionsSchema = pluginOptionsSchema
 
 exports.onPostBuild = async (
-  { graphql, reporter, basePath, pathPrefix },
+  { graphql, reporter, basePath },
   {
     output,
     entryLimit,
@@ -80,6 +80,12 @@ exports.onPostBuild = async (
 
   const sitemapWritePath = path.join(`public`, output)
   const sitemapPublicPath = path.posix.join(basePath, output)
+
+  reporter.verbose(" XXXXX siteUrl XXXXX: ", siteUrl);
+  reporter.verbose(" XXXXX sitemapPublicPath XXXXX: ", sitemapPublicPath);
+  reporter.verbose(" XXXXX sitemapWritePath XXXXX: ", sitemapWritePath);
+  reporter.verbose(" XXXXX serializedPages XXXXX: ", serializedPages);
+  reporter.verbose(" XXXXX entryLimit XXXXX: ", entryLimit);
 
   return simpleSitemapAndIndex({
     hostname: siteUrl,
