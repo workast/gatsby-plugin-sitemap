@@ -84,14 +84,14 @@ exports.onPostBuild = async (
   const sitemapWritePath = path.join(`public`, output)
   // WST START: The original line is commented.
   // const sitemapPublicPath = path.posix.join(pathPrefix, output)
-  const sitemapPublicPath = ignoreAssetPrefix
-    ? output
-    : path.posix.join(pathPrefix, output);
+  // const sitemapPublicPath = ignoreAssetPrefix
+  //   ? output
+  //   : path.posix.join(pathPrefix, output);
   // WST END
 
   return simpleSitemapAndIndex({
     hostname: siteUrl,
-    publicBasePath: sitemapPublicPath,
+    // publicBasePath: sitemapPublicPath,
     destinationDir: sitemapWritePath,
     sourceData: serializedPages,
     limit: entryLimit,
